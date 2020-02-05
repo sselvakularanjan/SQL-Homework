@@ -1,0 +1,28 @@
+card_holder
+-----
+card_holder_id PK int
+card_holder_name varchar(200)
+
+credit_card
+-----
+credit_card_number PK int
+card_holder_id int FK >- card_holder.card_holder_id
+
+merchant_category
+-----
+merchant_category_id PK int
+merchant_category_name varchar(200)
+
+merchant
+-----
+merchant_id PK int
+merchant_name varchar(200)
+merchant_category_id int FK >- merchant_category.merchant_category_id
+
+transaction
+-----
+transaction_id PK int
+transaction_date date
+transaction_amount float
+merchant_id int FK >- merchant.merchant_id
+credit_card_number int FK >- credit_card.credit_card_number
